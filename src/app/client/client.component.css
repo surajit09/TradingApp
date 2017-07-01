@@ -1,0 +1,80 @@
+body{
+   font-family: 'ArialMT', sans-serif;
+   font-size: 10px;
+
+}
+
+.container{
+
+    margin-top: 20px;
+}
+ul li{
+
+    list-style: none;
+}
+
+.row{
+
+    margin-bottom: 30px;
+}
+
+#containerfooter{
+    margin-top:20px;
+    
+    position: fixed; 
+        bottom: 0; 
+         
+}
+button{
+    width: 120px;
+}
+.footer{
+        margin-top:60px;
+         background-color: #d3d3d3;
+          
+}
+.rightbutton{
+
+   
+   padding: 10px 10px 10px 120px;
+
+}
+.centerbutton{
+   
+    padding:10px 60px 10px 5px;
+
+}
+.leftbutton{
+
+   
+   padding:10px 5px 10px 60px;
+}
+
+
+
+
+/*Media query*/
+
+@media(max-width:768)
+{
+    button{
+        
+        float: left
+    }
+    .rightbutton{
+
+   
+   padding: 10px 10px 10px 10px;
+
+}
+.centerbutton{
+   
+    padding:10px 10px 10px 5px;
+
+}
+.leftbutton{
+
+   
+   padding:10px 5px 10px 10px;
+}
+}

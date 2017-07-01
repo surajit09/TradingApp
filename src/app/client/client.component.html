@@ -1,0 +1,108 @@
+
+  <div class="container">
+
+    
+
+      <section id="main" class="col-sm-7">
+        <div class="row">
+          
+        <font color="silver"> {{client.type}} Account</font>
+         
+      <h3><strong>{{client.name}}</strong></h3>
+      
+        </div>
+        
+        <div class="row" >
+          <div class="col-sm-5">
+            {{client.phone}}
+            <br/>
+            <br/>
+            NP: <strong>{{client.net_position | currency:'USD':true:'1.2-2'}}</strong>
+          </div>
+          
+          <div class="col-sm-6 col-sm-offset-1">
+           <font color="silver"> Main Contact </font> <span class="glyphicon glyphicon-user"></span>
+            <br/>
+            <br/>
+            <strong>{{client.main_contact.name}}</strong> <br/>
+           <font size="1"> {{client.main_contact.position}}</font>
+          </div>
+        </div>
+         
+          <div class="row"  >
+           <table class="table">
+    
+                <tbody>
+              <tr>
+              <td><font color="silver"> Dealer</font></td>
+              <td><font color="silver">Last Login</font></td>
+              <td><font color="silver">Last Call</font></td>
+              </tr>
+                  <tr>
+                    <td>{{client.dealer}}</td>
+                    <td>{{client.last_login | date:'MMM' }}{{client.last_login | date:'dd' }}&nbsp;&nbsp;{{client.last_login | date:'h:mm' }}</td>
+                    <td> {{client.last_call.date | date:'MMM'}}{{client.last_call.date | date:'dd'}}&nbsp;&nbsp;{{client.last_call.date | date:'h:mm'}}
+            &nbsp;&nbsp;({{client.last_call.contact}})</td>
+                  </tr>
+            </tbody>
+            </table>
+          </div>
+            
+          
+            <div class="row">
+             <font color="silver">Last Notes</font> <span class="glyphicon glyphicon-comment"></span> <br/>
+              <ul>
+                <li *ngFor="let note of notes">
+                  {{note.date |date:'MMM'}}     {{note.date |date:'dd'}} &nbsp;&nbsp;    {{note.author}}: &nbsp;&nbsp;    {{note.text}}
+                </li>
+              </ul>
+            </div>
+
+         
+
+      </section>
+     
+      <section id="sidebar" class="col-sm-4 col-sm-offset-1" >
+        <div class="row">
+        <font color="silver"> Active Trade</font>
+        <br/>
+         <strong>{{trade.id}}</strong>
+         </div>
+         
+         <div class="row">
+           <ul class="list-group">
+         <li class="list-group-item"><font color="silver">Buy</font> {{trade.buy.amount}}{{trade.buy.currency}}</li>
+         
+         <li class="list-group-item"><font color="silver">Sell</font> {{trade.sell.amount}}{{trade.sell.currency}}</li>
+          
+          <li class="list-group-item"><font color="silver">Margin</font> {{trade.margin}}%</li>
+           </ul>
+         </div>
+        <div class="row">
+            <font color="silver">    Dealer</font><br/>
+         {{trade.dealer}}
+        </div>
+        
+      </section>
+
+
+    </div>
+    
+  
+
+
+  <div class="container" id="containerfooter">
+    <section class="footer">
+      <span class="leftbutton"> <button type="button" class="btn btn-success" (click)="accept()"> ACCEPT</button></span>
+            
+        
+        <span class="centerbutton"><button type="button" class="btn btn-info" (click)="transfer()" >TRANSFER</button> </span>
+
+      <span class="rightbutton"> <button type="button" class="btn btn-danger"  (click)="delete()">DECLINE</button></span>
+      
+      
+
+    </section>
+  </div>
+
+  
